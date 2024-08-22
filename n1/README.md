@@ -70,7 +70,7 @@ The Popular Food and Drinks Store is an e-commerce platform designed to offer a 
 ├── .gitignore
 ├── docker-compose.yml
 └── Dockerfile
-
+```
 
 ## Installation
 
