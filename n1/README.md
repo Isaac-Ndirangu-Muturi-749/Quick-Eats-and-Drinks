@@ -1,6 +1,4 @@
-Here’s a basic template for your `README.md` file that outlines your project, installation instructions, usage, and more:
 
-```markdown
 # Popular Food and Drinks Store
 
 ## Overview
@@ -72,7 +70,7 @@ The Popular Food and Drinks Store is an e-commerce platform designed to offer a 
 ├── .gitignore
 ├── docker-compose.yml
 └── Dockerfile
-```
+
 
 ## Installation
 
@@ -161,7 +159,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Stripe/PayPal
 - Docker
 - AWS CloudFormation
-```
+
 
 ### Summary
 
@@ -175,5 +173,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Contributing**: Guidelines for contributing to the project.
 - **License**: License details.
 - **Acknowledgements**: Credits for technologies used.
-
-You can adjust and expand upon this template based on your project's specific needs and requirements.
