@@ -61,3 +61,157 @@ Here are some suggestions for sourcing images online for each category of produc
 - **Frozen Vegetables**: https://th.bing.com/th/id/R.a6a5b7db6deadb16562728a355ac5059?rik=PUCEuWhfc9a8ew&pid=ImgRaw&r=0
 - **Frozen Fish**: https://th.bing.com/th/id/R.1194775e0b0006be4da3f5afeb20251c?rik=FDr6fI5iFj7CsQ&riu=http%3a%2f%2fthehealthyfish.com%2fwp-content%2fuploads%2f2015%2f10%2fshutterstock_149902232.jpg&ehk=3%2bp%2bVl8cNR%2fLYozxzElaEPfxAnSAeGcw%2fh47GuT7Xow%3d&risl=&pid=ImgRaw&r=0
 - **Frozen Burgers**: https://th.bing.com/th/id/OIP.UBtYOLcGF2VwtQM8Do9deQAAAA?rs=1&pid=ImgDetMain
+
+
+
+
+To get your website up and running, follow these steps to ensure each component of your project is properly set up and connected:
+
+### 1. **Set Up Backend**
+
+#### a. **Install Dependencies**
+
+Navigate to the `backend` directory and install the necessary dependencies:
+
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+#### b. **Run Migrations**
+
+If using Django, apply migrations to set up your database schema:
+
+```bash
+python manage.py migrate
+```
+
+If using Flask, ensure that your database is set up and migrations are applied as needed.
+
+#### c. **Start Backend**
+
+Choose the appropriate script to start your backend:
+
+For Django:
+```bash
+cd ../scripts
+./start_backend_Django.sh
+```
+
+For Flask:
+```bash
+cd ../scripts
+./start_backend_Flask.sh
+```
+
+### 2. **Set Up Database**
+
+#### a. **Run Seed Script**
+
+Navigate to the `database` directory and run the seed data script to populate your database with initial data:
+
+```bash
+cd database
+python seed_data.py
+```
+
+### 3. **Set Up Frontend**
+
+#### a. **Install Dependencies**
+
+Navigate to the `frontend` directory and install the necessary dependencies:
+
+```bash
+cd frontend
+npm install
+```
+
+#### b. **Build Frontend**
+
+Run the build script to compile your Vue.js application:
+
+```bash
+cd ../scripts
+./build_frontend.sh
+```
+
+#### c. **Start Frontend**
+
+Serve your Vue.js application:
+
+```bash
+npm run serve
+```
+
+### 4. **Set Up Docker (if using Docker)**
+
+#### a. **Build Docker Images**
+
+Build the Docker images as specified in your `Dockerfile`:
+
+```bash
+docker build -t your-backend-image .
+```
+
+#### b. **Start Docker Containers**
+
+Use Docker Compose to start all services:
+
+```bash
+docker-compose up --build
+```
+
+### 5. **Deploy to AWS (if applicable)**
+
+#### a. **Deploy Infrastructure**
+
+Use the deployment script to set up your AWS resources:
+
+```bash
+cd scripts
+./deploy.sh
+```
+
+Ensure that your CloudFormation templates in `cloudformation/` are correctly configured for your AWS setup.
+
+### 6. **Run Tests**
+
+#### a. **Backend Tests**
+
+Run the backend tests to ensure everything is working correctly:
+
+```bash
+cd tests/backend
+pytest test_api_pytest_Django.py  # For Django
+pytest test_api_unittest_Flask.py  # For Flask
+```
+
+#### b. **Frontend Tests**
+
+Run frontend tests to verify your Vue.js components:
+
+```bash
+cd ../frontend
+npm run test:unit
+```
+
+#### c. **Integration Tests**
+
+Run integration tests to ensure end-to-end functionality:
+
+```bash
+cd ../integration
+python test_checkout_flow.py
+```
+
+### 7. **Verify Everything**
+
+- Open your browser and navigate to the local server (typically `http://localhost:8080` for Vue.js and `http://localhost:8000` for Django/Flask).
+- Ensure all pages load correctly, and all features (product listings, checkout, etc.) work as expected.
+
+### 8. **Debugging**
+
+- **Check Logs**: Review the logs from Docker, the backend server, and the frontend build process to troubleshoot any issues.
+- **Update Configurations**: Make sure all configurations (e.g., environment variables, API endpoints) are correctly set in your `.env` file and your code.
+
+By following these steps, you’ll set up, run, and verify each component of your website to ensure everything works together as expected.

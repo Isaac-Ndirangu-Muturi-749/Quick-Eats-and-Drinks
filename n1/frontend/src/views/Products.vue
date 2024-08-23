@@ -1,38 +1,37 @@
 <template>
-  <div class="products">
-    <h2>Our Products</h2>
-    <div class="product-list">
-      <ProductCard v-for="product in products" :key="product.id" :product="product" />
-    </div>
-  </div>
-</template>
+	<div class="products">
+	  <h2>Our Products</h2>
+	  <div class="product-list">
+		<ProductCard v-for="product in allProducts" :key="product.name" :product="product" />
+	  </div>
+	</div>
+  </template>
 
-<script>
-import ProductCard from '../components/ProductCard.vue';
+  <script>
+  import ProductCard from '../components/ProductCard.vue';
+  import { mapGetters } from 'vuex';
 
-export default {
-  components: {
-    ProductCard
-  },
-  data() {
-    return {
-      products: [
-        { id: 1, name: 'Frozen Pizza', price: 10, image: '/src/assets/frozen-pizza.jpg' },
-        { id: 2, name: 'Pre-cooked Chicken Breasts', price: 12, image: '/src/assets/chicken-breasts.jpg' },
-        // Add more products here
-      ]
-    };
+  export default {
+	components: {
+	  ProductCard
+	},
+	computed: {
+	  ...mapGetters(['productsByCategory']),
+	  allProducts() {
+		// Flatten the product categories into a single array
+		return Object.values(this.productsByCategory).flat();
+	  }
+	}
+  };
+  </script>
+
+  <style scoped>
+  .products {
+	margin: 20px;
   }
-};
-</script>
 
-<style scoped>
-.products {
-  margin: 20px;
-}
-
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-</style>
+  .product-list {
+	display: flex;
+	flex-wrap: wrap;
+  }
+  </style>
