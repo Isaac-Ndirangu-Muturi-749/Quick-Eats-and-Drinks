@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Popular Food and Drinks Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+</head>
+<body class="bodyStyle">
+    <div id="header" class="mainHeader">
+        <hr>
+        <div class="center">Popular Food and Drinks Store</div>
+    </div>
+    <br>
+    <div class="topnav">
+        <a href="{{ url_for('products.index') }}">Home</a>
+        <a href="{{ url_for('products.menu') }}" class="active">Menu</a>
+        <a href="{{ url_for('products.order_history') }}">Order History</a>
+    </div>
+    {% block content %}{% endblock %}
+    <div id="Copyright" class="center">
+        <h5>&copy; 2024, Your Company. All rights reserved.</h5>
+    </div>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

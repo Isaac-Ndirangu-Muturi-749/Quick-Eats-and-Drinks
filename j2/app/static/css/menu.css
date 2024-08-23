@@ -1,0 +1,6 @@
+
+.product-image {
+    width: 200px;
+    height: auto;  /* This keeps the aspect ratio intact */
+    object-fit: cover;  /* Optional: crops the image to fit the specified size */
+}
