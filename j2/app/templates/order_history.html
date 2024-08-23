@@ -1,30 +1,38 @@
 {% extends 'base.html' %}
 
+{% block title %}Order History{% endblock %}
+
 {% block content %}
-    <h1>Order History</h1>
+<div class="bodyStyle">
+    <div class="cursiveText">
+        <p>Order History</p>
+    </div>
 
     {% if orders %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in orders %}
+        {% for order_data in orders %}
+            <div>
+                <p><b>Order Number: {{ order_data.order.id }} | Date: {{ order_data.order.order_date_time.strftime('%Y-%m-%d') }} | Time: {{ order_data.order.order_date_time.strftime('%H:%M:%S') }} | Total Amount: ${{ order_data.order.total_amount }}</b></p>
+                <table style="width: 80%">
                     <tr>
-                        <td>{{ order.id }}</td>
-                        <td>{{ order.product_name }}</td>
-                        <td>{{ order.quantity }}</td>
-                        <td>{{ order.total_price | format_currency }}</td>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                    {% for item in order_data.items %}
+                    <tr>
+                        <td align="center">{{ item.product.name }}</td>
+                        <td align="center">${{ item.price }}</td>
+                        <td align="center">{{ item.quantity }}</td>
+                        <td align="center">${{ item.amount }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <hr>
+        {% endfor %}
     {% else %}
-        <p>No orders found.</p>
+        <p class="center">You have no orders at this time.</p>
     {% endif %}
+</div>
 {% endblock %}
