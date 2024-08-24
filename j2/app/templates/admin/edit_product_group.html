@@ -1,12 +1,12 @@
-
+<!-- app/templates/admin/edit_product_group.html -->
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Edit Product Group</h1>
-<form action="{{ url_for('admin.edit_product_group', group_id=group.id) }}" method="POST">
-	<label for="product_group_name">Product Group Name:</label>
-	<input type="text" id="product_group_name" name="product_group_name" value="{{ group.product_group_name }}" required><br>
-	<button type="submit">Update Product Group</button>
-</form>
-
+<div class="form-container">
+    <h1>Edit Product Group</h1>
+    <form action="{{ url_for('admin.edit_product_group', group_id=group.id) }}" method="POST">
+        <label for="product_group_name">Product Group Name:</label>
+        <input type="text" id="product_group_name" name="product_group_name" value="{{ group.product_group_name }}" required>
+        <button type="submit">Update Product Group</button>
+    </form>
+</div>
 {% endblock %}

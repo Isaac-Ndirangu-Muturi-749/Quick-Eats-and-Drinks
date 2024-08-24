@@ -1,41 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="hero-section">
+<section class="hero-section">
+    <div class="hero-content">
         <h2>Welcome to</h2>
-        <h1 >Quick Eats and Drinks!</h1>
-
+        <h1>Quick Eats and Drinks!</h1>
         <p>Your one-stop shop for all your food and drink needs.</p>
         <a href="{{ url_for('products.menu') }}" class="btn-primary">Explore Our Menu</a>
     </div>
+</section>
 
-    <div class="features-section">
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/fast_delivery.png') }}" alt="Fast Delivery" class="feature-img">
-            <h2>Fast Delivery</h2>
-            <p>Enjoy quick and reliable delivery service right to your door.</p>
-        </div>
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/fresh_ingredients.png') }}" alt="Fresh Ingredients" class="feature-img">
-            <h2>Fresh Ingredients</h2>
-            <p>We use only the freshest ingredients to ensure the best taste.</p>
-        </div>
-        <div class="feature">
-            <img src="{{ url_for('static', filename='images/great_deals.png') }}" alt="Great Deals" class="feature-img">
-            <h2>Great Deals</h2>
-            <p>Discover amazing deals and discounts on your favorite items.</p>
-        </div>
+<section class="features-section">
+    <div class="feature">
+        <img src="{{ url_for('static', filename='images/fast_delivery.png') }}" alt="Fast Delivery" class="feature-img">
+        <h2>Fast Delivery</h2>
+        <p>Enjoy quick and reliable delivery service right to your door.</p>
     </div>
+    <div class="feature">
+        <img src="{{ url_for('static', filename='images/fresh_ingredients.png') }}" alt="Fresh Ingredients" class="feature-img">
+        <h2>Fresh Ingredients</h2>
+        <p>We use only the freshest ingredients to ensure the best taste.</p>
+    </div>
+    <div class="feature">
+        <img src="{{ url_for('static', filename='images/great_deals.png') }}" alt="Great Deals" class="feature-img">
+        <h2>Great Deals</h2>
+        <p>Discover amazing deals and discounts on your favorite items.</p>
+    </div>
+</section>
 
-    <div class="testimonial-section">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial">
-            <p>"The food is always delicious and the service is top-notch!"</p>
-            <p>- Alex</p>
-        </div>
-        <div class="testimonial">
-            <p>"I love the variety of options and the quick delivery!"</p>
-            <p>- Jamie</p>
-        </div>
+<section class="testimonial-section">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+        <p>"The food is always delicious and the service is top-notch!"</p>
+        <p>- Alex</p>
     </div>
+    <div class="testimonial">
+        <p>"I love the variety of options and the quick delivery!"</p>
+        <p>- Jamie</p>
+    </div>
+</section>
 {% endblock %}

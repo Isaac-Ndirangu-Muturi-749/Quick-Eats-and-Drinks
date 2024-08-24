@@ -3,20 +3,28 @@
     background-image: url('https://th.bing.com/th/id/OIP.EGhpJUVJNiS3vuDK_cxgDQAAAA?rs=1&pid=ImgDetMain');
     background-size: cover;
     background-position: center;
-    color: black;
-    text-align: left;
-    padding: 100px 20px;
+    color: rgb(24, 23, 23);
+    padding: 120px 20px;
+    background-blur: 5px;
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+}
+
+.hero-content {
+    max-width: auto;
+    text-align: left; /* Align text to the left */
 }
 
 .hero-section h1 {
     font-family: 'Cursive', 'Lucida Handwriting', sans-serif;
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin: 0;
+    line-height: 1.2;
 }
 
 .hero-section h2 {
-    font-size: 1.5rem;
-    margin: 20px 0;
+    font-size: 1.8rem;
+    margin: 10px 0;
 }
 
 .hero-section p {
@@ -27,27 +35,32 @@
 .btn-primary {
     background-color: #444;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
     background-color: #575757;
 }
 
+
 /* Features Section */
 .features-section {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 50px 20px;
     text-align: center;
+    background-color: #ffffff;
 }
 
 .feature {
     flex: 1;
-    margin: 0 20px;
+    max-width: 300px;
+    margin: 20px;
 }
 
 .feature-img {
@@ -63,6 +76,7 @@
 
 .feature p {
     font-size: 1rem;
+    color: #666;
 }
 
 /* Testimonial Section */
@@ -73,17 +87,18 @@
 }
 
 .testimonial-section h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
 }
 
 .testimonial {
     font-style: italic;
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .testimonial p {
     font-size: 1.2rem;
     margin: 10px 0;
+    color: #333;
 }

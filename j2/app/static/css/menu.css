@@ -1,90 +1,110 @@
-/* CSS document for Menu page of e-commerce web site */
+/* General menu page styling */
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-html {
-    box-sizing: border-box;
-  }
+.product-group {
+  margin-bottom: 30px;
+}
 
-  p.center {
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
+.product-group-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
 
-  hr {
-    clear: both;
-  }
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-  .bodyStyle {
-    width: 960px;
-    margin: 0 auto;
-    overflow: auto;
-    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'sans-serif';
-    font-size: 15px;
-  }
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: calc(33.333% - 20px); /* Adjust as needed */
+  box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+}
 
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
+.product-image {
+  width: auto;
+  height: 300px;
+  border-bottom: 1px solid #ddd;
+}
 
-  .column {
-    float: left;
-    width: 33.3%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-  }
+.product-info {
+  padding: 10px 0;
+}
 
-  @media screen and (max-width: 650px) {
-    .column {
-      width: 100%;
-      display: block;
-    }
-  }
+.product-name {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #007bff;
+}
 
+.product-price {
+  font-size: 16px;
+  color: #28a745;
+}
 
-  .container {
-    padding: 0 16px;
-  }
+.product-description {
+  font-size: 14px;
+  color: #555;
+}
 
-  .container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+.quantity-container {
+  margin: 10px 0;
+}
 
-  .button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: gray;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-  }
+.quantity-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
 
-  .button:hover {
-    background-color: #555;
-  }
+.item-total {
+  font-size: 14px;
+  font-weight: bold;
+}
 
-  .productTitle {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
+.form-actions {
+  margin-top: 20px;
+  text-align: center;
+}
 
-  .product-image {
-    width: 100px;
-    height: auto;  /* Keep aspect ratio */
-    object-fit: cover;
-  }
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+}
 
-  .cursiveText p {
-    font-family: 'Cursive', 'Lucida Handwriting', sans-serif;
-    font-size: 24px;
-    text-align: center;
-  }
+.submit-button {
+  background-color: #007bff;
+  color: white;
+}
 
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.reset-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #5a6268;
+}
 
 /* Container for the order total */
 .order-total-container {
@@ -111,27 +131,4 @@ html {
     border: 2px solid #e74c3c; /* Border to highlight the total value */
     border-radius: 5px; /* Rounded corners */
     background-color: #f9f9f9; /* Light background color */
-}
-
-/* Flexbox for product groups */
-.product-group-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-/* Styling for individual product cards */
-.card {
-    flex: 1 1 20%; /* Adjust the card size as needed */
-    margin: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    padding: 16px;
-    text-align: center;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
 }

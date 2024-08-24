@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    color: #333;
 }
 
 header {
@@ -25,10 +26,11 @@ header h1 {
 .topnav {
     background-color: #444;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 0;
     color: white;
+    border-bottom: 1px solid #555;
 }
 
 .topnav a {
@@ -36,15 +38,17 @@ header h1 {
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    font-size: 16px;
 }
 
 .topnav a.active {
     background-color: #575757;
+    border-radius: 5px;
 }
 
 .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #575757;
+    color: white;
 }
 
 /* Navigation links on the right in the header */
@@ -55,26 +59,32 @@ header h1 {
 }
 
 .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo h1 {
+    margin: 0;
     font-size: 24px;
     font-weight: bold;
 }
 
 .header-links {
     display: flex;
-    flex-direction: column; /* Stack links vertically */
-    align-items: flex-end; /* Align to the right */
+    gap: 15px;
 }
 
 .header-links a {
     color: white;
-    text-align: center;
-    padding: 8px 12px;
     text-decoration: none;
     font-size: 14px;
 }
 
 .header-links a.active {
     background-color: #ddd;
+    color: black;
+    border-radius: 5px;
 }
 
 .header-links a:hover {
@@ -92,6 +102,7 @@ main {
     color: white;
     text-align: center;
     padding: 1rem;
+    position: relative;
     bottom: 0;
     width: 100%;
 }

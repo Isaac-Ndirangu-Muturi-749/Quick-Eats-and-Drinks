@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickEats&Drinks</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/orders.css') }}">
-
-    <!-- Add favicon here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
 </head>
 <body class="bodyStyle">
     <header id="header" class="mainHeader">
         <div class="header-content">
             <div class="header-logo">
-                <!-- Add the logo image here -->
                 <img src="{{ url_for('static', filename='images/logo.png') }}" alt="QuickEats&Drinks Logo" class="logo-img">
                 <h1>Quick Eats & Drinks</h1>
             </div>
@@ -42,15 +42,17 @@
             </ul>
         {% endif %}
     {% endwith %}
-    <div class="topnav">
-        <a href="{{ url_for('main.index') }}">Home</a>
-        <a href="{{ url_for('products.menu') }}" class="active">Menu</a>
-        <a href="{{ url_for('orders.order_history') }}">Order History</a>
-        <a href="{{ url_for('admin.dashboard') }}">Admin Panel</a>
-    </div>
-    {% block content %}{% endblock %}
-    <div id="Copyright" class="center">
+    <nav class="topnav">
+        <a href="{{ url_for('main.index') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('products.menu') }}" class="nav-link active">Menu</a>
+        <a href="{{ url_for('orders.order_history') }}" class="nav-link">Order History</a>
+        <a href="{{ url_for('admin.dashboard') }}" class="nav-link">Admin Panel</a>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">
         <h5>&copy; 2024, QuickEats&Drinks. All rights reserved.</h5>
-    </div>
+    </footer>
 </body>
 </html>
