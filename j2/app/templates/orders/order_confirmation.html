@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+	<h1>Order Confirmation</h1>
+</header>
+<main>
+	<p>Thank you for your order! It will be available for pickup
+		within 15 minutes. Your order number and details are shown below.</p>
+	<p>Order ID: {{ order.id }}</p>
+    <p>Order Date: {{ order.order_date_time }}</p>
+    <p>Total Amount: {{ order.amount | round(2) }}</p> <!-- Format to 2 decimal places -->
+
+    <h3>Items:</h3>
+	<ul>
+		{% for order_item, product in items %}
+			<li>{{ product.product_name }} - {{ order_item.quantity }} x {{ product.price }}</li>
+		{% endfor %}
+	</ul>
+</main>
+{% endblock %}

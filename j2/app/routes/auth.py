@@ -23,7 +23,7 @@ def login():
         else:
             flash('Login failed. Please check your username and/or password.')
 
-    return render_template('login.html')
+    return render_template('auth/login.html')
 
 @bp.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -49,7 +49,7 @@ def signup():
         flash('Signup successful. You can now log in.')
         return redirect(url_for('auth.login'))  # Redirect after successful signup
 
-    return render_template('signup.html')
+    return render_template('auth/signup.html')
 
 @bp.route('/logout')
 @login_required

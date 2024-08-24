@@ -19,11 +19,11 @@
         <a href="{{ url_for('auth.login') }}">Login</a>
         <a href="{{ url_for('auth.signup') }}">Signup</a>
         <a href="{{ url_for('auth.logout') }}">Logout</a>
+        <a href="{{ url_for('admin.dashboard') }}">Admin</a>
     </div>
     {% block content %}{% endblock %}
     <div id="Copyright" class="center">
-        <h5>&copy; 2024, Your Company. All rights reserved.</h5>
+        <h5>&copy; 2024, QuickEats&Drinks. All rights reserved.</h5>
     </div>
-    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
 </body>
 </html>

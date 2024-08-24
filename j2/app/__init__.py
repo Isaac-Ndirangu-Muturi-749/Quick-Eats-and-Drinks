@@ -33,6 +33,9 @@ def create_app():
     from app.routes.products import bp as products_bp
     app.register_blueprint(products_bp)
 
+    from app.routes.admin import admin_bp as admin_bp
+    app.register_blueprint(admin_bp)
+
     @login_manager.user_loader
     def load_user(user_id):
         from app.models import User  # Local import to avoid circular import issues

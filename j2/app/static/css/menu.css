@@ -40,13 +40,6 @@ html {
     }
   }
 
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 350px;
-    line-height: 20px;
-    text-align: center;
-    padding: 10px;
-  }
 
   .container {
     padding: 0 16px;
@@ -91,3 +84,54 @@ html {
     font-size: 24px;
     text-align: center;
   }
+
+
+/* Container for the order total */
+.order-total-container {
+    display: flex; /* Use flexbox to align items side by side */
+    justify-content: center; /* Center the entire container */
+    align-items: center; /* Vertically center items */
+    margin-top: 20px; /* Space above the total section */
+}
+
+/* Title for the order total */
+.order-total-title {
+    font-size: 1.5em; /* Larger font size for the title */
+    color: #333; /* Dark color for the title */
+    font-weight: bold; /* Bold text */
+    margin-right: 10px; /* Space between title and value */
+}
+
+/* Value of the order total */
+.order-total-value {
+    font-size: 2em; /* Larger font size for the total value */
+    color: #e74c3c; /* Highlight color for the total value */
+    font-weight: bold; /* Bold text */
+    padding: 5px 10px; /* Padding around the total value */
+    border: 2px solid #e74c3c; /* Border to highlight the total value */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/* Flexbox for product groups */
+.product-group-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+/* Styling for individual product cards */
+.card {
+    flex: 1 1 20%; /* Adjust the card size as needed */
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 16px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}

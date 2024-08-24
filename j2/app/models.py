@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(150), unique=True, nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
+    is_admin = db.Column(db.Boolean, default=False)
 
     # Set and check password methods
     def set_password(self, password):
@@ -24,19 +25,35 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f'<User {self.username}>'
 
+
+class ProductGroup(db.Model):
+    __tablename__ = 'product_group'
+
+    id = db.Column(db.Integer, primary_key=True)
+    product_group_name = db.Column(db.String(50), nullable=False)
+
+    # Relationship with Product
+    products = db.relationship('Product', backref='group', lazy=True)
+
+    def __repr__(self):
+        return f'<ProductGroup {self.product_group_name}>'
+
+
 class Product(db.Model):
-    __tablename__ = 'products'
+    __tablename__ = 'products'  # Changed to plural to match convention
 
     id = db.Column(db.Integer, primary_key=True)
     product_name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(200), nullable=True)
     price = db.Column(db.Float, nullable=False)
-    product_group_number = db.Column(db.Integer, nullable=False)
-    product_group_name = db.Column(db.String(100), nullable=False)
     image_url = db.Column(db.String(200), nullable=True)
+
+    # Foreign key to ProductGroup
+    product_group_id = db.Column(db.Integer, db.ForeignKey('product_group.id'), nullable=False)
 
     def __repr__(self):
         return f'<Product {self.product_name}>'
+
 
 class Order(db.Model):
     __tablename__ = 'orders'
@@ -51,6 +68,7 @@ class Order(db.Model):
 
     def __repr__(self):
         return f'<Order {self.id}>'
+
 
 class OrderItem(db.Model):
     __tablename__ = 'order_items'

@@ -15,20 +15,35 @@ def menu():
     products_list = Product.query.all()
     return render_template('menu.html', products=products_list)
 
-@bp.route('/order-history')
+@bp.route('/order-history', methods=['GET'])
 @login_required
 def order_history():
     orders = Order.query.filter_by(user_id=current_user.id).all()
     order_data = []
 
     for order in orders:
+        # Get all items for this order
         items = OrderItem.query.filter_by(order_id=order.id).all()
+
+        # Build the order data to include the product details
+        item_data = []
+        for item in items:
+            # Access the product details through the relationship
+            product = Product.query.get(item.product_id)
+            item_data.append({
+                'product_name': product.product_name,
+                'price': product.price,
+                'quantity': item.quantity,
+                'total_price': item.amount  # This could also be item.quantity * product.price
+            })
+
         order_data.append({
             'order': order,
-            'items': items
+            'items': item_data
         })
 
-    return render_template('order_history.html', orders=order_data)
+    return render_template('orders/order_history.html', orders=order_data)
+
 
 @bp.route('/process_order', methods=['POST'])
 @login_required
@@ -55,10 +70,11 @@ def process_order():
 
     return redirect(url_for('products.order_confirmation', order_id=order.id))
 
+
 @bp.route('/order_confirmation/<int:order_id>')
 @login_required
 def order_confirmation(order_id):
     order = Order.query.get_or_404(order_id)
-    items = OrderItem.query.filter_by(order_id=order.id).all()
+    items = db.session.query(OrderItem, Product).join(Product).filter(OrderItem.order_id == order_id).all()
 
-    return render_template('order_confirmation.html', order=order, items=items)
+    return render_template('orders/order_confirmation.html', order=order, items=items)

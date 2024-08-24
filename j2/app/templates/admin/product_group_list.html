@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Product Group List</h1>
+<a href="{{ url_for('admin.add_product_group') }}">Add New Product Group</a>
+<table>
+	<thead>
+		<tr>
+			<th>Group Name</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for group in product_groups %}
+		<tr>
+			<td>{{ group.product_group_name }}</td>
+			<td>
+				<a href="{{ url_for('admin.edit_product_group', group_id=group.id) }}">Edit</a>
+				<form action="{{ url_for('admin.delete_product_group', group_id=group.id) }}" method="POST" style="display:inline;">
+					<button type="submit">Delete</button>
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}
