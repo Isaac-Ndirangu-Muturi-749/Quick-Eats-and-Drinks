@@ -1,18 +1,45 @@
+<!-- app/templates/order_history.html -->
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Order History</h1>
+    <div class="order-history-container">
+        <header class="order-header">
+            <h1>Order History</h1>
+        </header>
 
-{% for data in orders %}
-    <h2>Order ID: {{ data['order'].id }}</h2>
-    <p>Order Date: {{ data['order'].order_date_time }}</p>
-    <p>Total Amount: {{ data['order'].amount }}</p>
+        {% if orders %}
+            {% for data in orders %}
+                <div class="order-details">
+                    <p><strong>Order ID:</strong> {{ data['order'].id }} &nbsp;&nbsp;&nbsp;&nbsp;
+                       <strong>Date:</strong> {{ data['order'].order_date_time.strftime('%Y-%m-%d') }} &nbsp;&nbsp;&nbsp;&nbsp;
+                       <strong>Time:</strong> {{ data['order'].order_date_time.strftime('%H:%M:%S') }} &nbsp;&nbsp;&nbsp;&nbsp;
+                       <strong>Total Amount:</strong> {{ data['order'].amount | format_currency }}</p>
 
-    <h3>Items:</h3>
-    <ul>
-        {% for item in data['items'] %}
-            <li>{{ item.product_name }} - Quantity: {{ item.quantity }} - Price: {{ item.price }} - Total: {{ item.total_price }}</li>
-        {% endfor %}
-    </ul>
-{% endfor %}
+                    <table class="order-items-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in data['items'] %}
+                                <tr>
+                                    <td>{{ item.product_name }}</td>
+                                    <td>{{ item.price | format_currency }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>{{ item.total_price | format_currency }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p class="center">You have no orders at this time.</p>
+        {% endif %}
+    </div>
 {% endblock %}

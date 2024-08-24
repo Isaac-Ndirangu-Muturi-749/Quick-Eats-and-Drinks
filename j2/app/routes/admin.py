@@ -14,7 +14,7 @@ def admin_required(func):
     def wrapper(*args, **kwargs):
         if not current_user.is_admin:
             flash("You are not authorized to access this page.", "danger")
-            return redirect(url_for('products.menu'))
+            return redirect(url_for('main.index'))
         return func(*args, **kwargs)
     return wrapper
 

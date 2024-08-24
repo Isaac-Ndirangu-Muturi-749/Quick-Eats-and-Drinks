@@ -5,7 +5,7 @@
 {% block content %}
 <div class="bodyStyle">
 
-    <form id="orderForm" action="{{ url_for('products.process_order') }}" method="post" onsubmit="return validateOrder()">
+    <form id="orderForm" action="{{ url_for('orders.process_order') }}" method="post" onsubmit="return validateOrder()">
         {% for group_name, products in grouped_products.items() %}
             <div class="cursiveText">
                 <p>{{ group_name }}</p>

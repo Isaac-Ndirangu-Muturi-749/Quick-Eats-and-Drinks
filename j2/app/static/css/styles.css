@@ -1,0 +1,97 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.logo-img {
+    height: 60px; /* Adjust according to your logo size */
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Top Navigation Bar */
+.topnav {
+    background-color: #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+}
+
+.topnav a {
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.topnav a.active {
+    background-color: #575757;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Navigation links on the right in the header */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-links {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-end; /* Align to the right */
+}
+
+.header-links a {
+    color: white;
+    text-align: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.header-links a.active {
+    background-color: #ddd;
+}
+
+.header-links a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Main content and footer */
+main {
+    padding: 1rem;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    bottom: 0;
+    width: 100%;
+}

@@ -2,24 +2,47 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Popular Food and Drinks Store</title>
+    <title>QuickEats&Drinks</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/orders.css') }}">
+
+    <!-- Add favicon here -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
 </head>
 <body class="bodyStyle">
-    <div id="header" class="mainHeader">
+    <header id="header" class="mainHeader">
+        <div class="header-content">
+            <div class="header-logo">
+                <!-- Add the logo image here -->
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="QuickEats&Drinks Logo" class="logo-img">
+                <h1>Quick Eats & Drinks</h1>
+            </div>
+            <div class="header-links">
+                <a href="{{ url_for('auth.login') }}" class="nav-link">Login</a>
+                <a href="{{ url_for('auth.signup') }}" class="nav-link">Signup</a>
+                <a href="{{ url_for('auth.logout') }}" class="nav-link">Logout</a>
+            </div>
+        </div>
         <hr>
-        <div class="center">Quick Eats & Drinks</div>
-    </div>
+    </header>
     <br>
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     <div class="topnav">
-        <a href="{{ url_for('products.index') }}">Home</a>
+        <a href="{{ url_for('main.index') }}">Home</a>
         <a href="{{ url_for('products.menu') }}" class="active">Menu</a>
-        <a href="{{ url_for('products.order_history') }}">Order History</a>
-        <a href="{{ url_for('auth.login') }}">Login</a>
-        <a href="{{ url_for('auth.signup') }}">Signup</a>
-        <a href="{{ url_for('auth.logout') }}">Logout</a>
-        <a href="{{ url_for('admin.dashboard') }}">Admin</a>
+        <a href="{{ url_for('orders.order_history') }}">Order History</a>
+        <a href="{{ url_for('admin.dashboard') }}">Admin Panel</a>
     </div>
     {% block content %}{% endblock %}
     <div id="Copyright" class="center">

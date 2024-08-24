@@ -27,11 +27,17 @@ def create_app():
         return "${:,.2f}".format(value)
 
     # Import and register blueprints
-    from app.routes.auth import bp as auth_bp
+    from app.routes.main import main_bp as main_bp
+    app.register_blueprint(main_bp)
+
+    from app.routes.auth import auth_bp as auth_bp
     app.register_blueprint(auth_bp)
 
-    from app.routes.products import bp as products_bp
+    from app.routes.products import products_bp as products_bp
     app.register_blueprint(products_bp)
+
+    from app.routes.orders import orders_bp as orders_bp
+    app.register_blueprint(orders_bp)
 
     from app.routes.admin import admin_bp as admin_bp
     app.register_blueprint(admin_bp)

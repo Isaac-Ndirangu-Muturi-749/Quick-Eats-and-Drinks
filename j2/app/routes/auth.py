@@ -4,12 +4,12 @@ from app.models import User
 from werkzeug.security import check_password_hash
 from app import db
 
-bp = Blueprint('auth', __name__, url_prefix='/auth')
+auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-@bp.route('/login', methods=['GET', 'POST'])
+@auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('products.index'))  # Redirect if already logged in
+        return redirect(url_for('main.index'))  # Redirect if already logged in
 
     if request.method == 'POST':
         email = request.form.get('email')
@@ -25,7 +25,7 @@ def login():
 
     return render_template('auth/login.html')
 
-@bp.route('/signup', methods=['GET', 'POST'])
+@auth_bp.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -51,7 +51,7 @@ def signup():
 
     return render_template('auth/signup.html')
 
-@bp.route('/logout')
+@auth_bp.route('/logout')
 @login_required
 def logout():
     logout_user()

@@ -3,5 +3,4 @@ Flask-SQLAlchemy
 Flask-Migrate
 Flask-Babel
 flask-login
-faker
 
