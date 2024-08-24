@@ -14,7 +14,7 @@
     <h3>Items:</h3>
 	<ul>
 		{% for order_item, product in items %}
-			<li>{{ product.product_name }} - {{ order_item.quantity }} x {{ product.price }}</li>
+			<li>{{ product.product_name }} - {{ order_item.quantity }} x {{ product.price }} = {{ order_item.quantity*product.price }}</li>
 		{% endfor %}
 	</ul>
 </main>

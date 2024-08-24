@@ -6,21 +6,12 @@
 <div class="bodyStyle">
 
     <form id="orderForm" action="{{ url_for('products.process_order') }}" method="post" onsubmit="return validateOrder()">
-        {% if products %}
-            {% set previous_product_group_number = 0 %}
+        {% for group_name, products in grouped_products.items() %}
+            <div class="cursiveText">
+                <p>{{ group_name }}</p>
+            </div>
+            <div class="product-group-container">
             {% for product in products %}
-                {% if product.product_group_number != previous_product_group_number %}
-                    {% if previous_product_group_number != 0 %}
-                        </div> <!-- Close the previous flex container -->
-                    {% endif %}
-                    <hr>
-                    <div class="cursiveText">
-                        <p>{{ product.product_group_name }}</p>
-                    </div>
-                    <div class="product-group-container"> <!-- Start a new flex container for the new group -->
-                    {% set previous_product_group_number = product.product_group_number %}
-                {% endif %}
-
                 <div class="column">
                     <div class="card">
                         <img src="{{ product.image_url if 'http' in product.image_url else url_for('static', filename='images/' ~ product.image_url) }}" class="product-image">
@@ -32,28 +23,34 @@
                             <input type="hidden" name="productName[]" value="{{ product.product_name }}">
                             <input type="hidden" name="price[]" value="{{ product.price }}">
                             <div class="center">
-                                Quantity: <input name="quantity[]" type="number" min="0" max="15" value="0" maxlength="2" onchange="updateTotal({{ loop.index0 }}, this.value, {{ product.price }})">
+                                Quantity: <input name="quantity[]" type="number" min="0" max="15" value="0" maxlength="2" onchange="updateTotal({{ product.id }}, this.value, {{ product.price }})">
                             </div>
+                            <p class="center">Total: <span id="itemTotal{{ product.id }}">0.00</span></p>
                             <br>
                         </div>
                     </div>
                 </div>
             {% endfor %}
-            </div> <!-- Close the last flex container -->
-
-            <div class="order-total-container">
-                <p class="order-total-title">Order Total:</p>
-                <p class="order-total-value" id="orderTotal">0.00</p>
             </div>
-            <br> <input type="submit" value="Submit Order" class="button">
-            <br> <br> <input type="reset" value="Reset Order" class="button" onclick="resetForm()">
-        {% else %}
-            <br><p class="center">There are no items on the menu.</p>
-        {% endif %}
+            <hr>
+        {% endfor %}
+
+        <div class="order-total-container">
+            <p class="order-total-title">Order Total:</p>
+            <p class="order-total-value" id="orderTotal">0.00</p>
+        </div>
+
+        <br> <input type="submit" value="Submit Order" class="button">
+        <br> <br> <input type="reset" value="Reset Order" class="button" onclick="resetForm()">
     </form>
 
     <hr>
 </div>
-<script src="{{ url_for('static', filename='js/menu.js') }}"></script>
 
+<script>
+    var itemTotals = new Array({{ total_products_count }});
+</script>
+
+<!-- Link to the external JavaScript file -->
+<script src="{{ url_for('static', filename='js/menu.js') }}"></script>
 {% endblock %}

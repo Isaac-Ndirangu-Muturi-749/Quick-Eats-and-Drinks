@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, redirect, url_for
 from app import db
-from app.models import Product, Order, OrderItem
+from app.models import Product, Order, OrderItem, ProductGroup
 from flask_login import current_user, login_required
 from datetime import datetime
 
@@ -10,10 +10,26 @@ bp = Blueprint('products', __name__)
 def index():
     return render_template('index.html')
 
+
 @bp.route('/menu', methods=['GET'])
 def menu():
-    products_list = Product.query.all()
-    return render_template('menu.html', products=products_list)
+    # Fetch all product groups and their associated products in a single query
+    product_groups = ProductGroup.query.outerjoin(Product).all()
+
+    # Create a dictionary to store products by group
+    grouped_products = {}
+
+    # Initialize the total product count
+    total_products_count = 0
+
+    # Loop through each group and fetch products
+    for group in product_groups:
+        products = group.products  # Assuming you have a relationship set up between ProductGroup and Product
+        grouped_products[group.product_group_name] = products
+        total_products_count += len(products)
+
+    return render_template('menu.html', grouped_products=grouped_products, total_products_count=total_products_count)
+
 
 @bp.route('/order-history', methods=['GET'])
 @login_required

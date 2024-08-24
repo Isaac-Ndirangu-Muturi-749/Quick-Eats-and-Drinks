@@ -31,6 +31,7 @@ class ProductGroup(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     product_group_name = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.String(200), nullable=True)
 
     # Relationship with Product
     products = db.relationship('Product', backref='group', lazy=True)
