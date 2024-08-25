@@ -194,38 +194,38 @@ As a regular user, you can browse the catalog, place orders, view your order his
    - Create an account on the **Sign Up** page by providing your email, username, and password.
    - If you already have an account, log in via the **Log In** page.
 
-   ![Sign Up Page](static/images/signup_screenshot.png)
-   ![Log In Page](static/images/login_screenshot.png)
+   ![Sign Up Page](app/static/images/signup_screenshot.png)
+   ![Log In Page](app/static/images/login_screenshot.png)
 
 
 2. **Browse Products**:
    - After logging in, explore the product catalog via the homepage or menu.
    - Products are categorized (e.g., Ready-Made Meals, Snacks, Beverages). Scroll through product cards to view prices, descriptions, and availability.
 
-   ![Product Menu](static/images/product_menu_screenshot.png)
+   ![Product Menu](app/static/images/product_menu_screenshot.png)
 
 3. **Add to Cart**:
    - Adjust the quantity using the up/down buttons on each product card.
    - View individual product totals on the card and a grand total for all selected items at the bottom.
    - Use the **Submit Order** button to place your order and proceed to checkout or **Reset Order** to clear quantities.
 
-   ![Add to Cart](static/images/cart_screenshot.png)
+   ![Add to Cart](app/static/images/cart_screenshot.png)
 
 4. **Checkout and Place Order**:
    - Review your cart and proceed to the checkout page.
    - Click the **Pay with PayPal** button to complete your purchase. You’ll be redirected to PayPal to log in and confirm payment to the store.
 
-   ![Checkout Page](static/images/checkout_screenshot.png)
+   ![Checkout Page](app/static/images/checkout_screenshot.png)
 
 5. **Order Confirmation and History**:
    - After placing an order, you’ll receive an order confirmation message indicating successful payment and delivery status.
 
-   ![Order Confirmation](static/images/order_confirmation_screenshot.png)
+   ![Order Confirmation](app/static/images/order_confirmation_screenshot.png)
 
 5. **Order Confirmation and History**:
    - View past orders in the **Order History** section from the navigation bar.
 
-   ![Order History](static/images/order_history_screenshot.png)
+   ![Order History](app/static/images/order_history_screenshot.png)
 
 ### Admin Users
 
@@ -234,24 +234,24 @@ As an admin, you have additional privileges to manage the platform's content and
 1. **Admin Dashboard**:
    - Access the **Admin Dashboard** via the navigation bar. The dashboard allows you to manage **Products**, **Product Groups**, and **Users**.
 
-   ![Admin Dashboard](static/images/admin_dashboard_screenshot.png)
+   ![Admin Dashboard](app/static/images/admin_dashboard_screenshot.png)
 
 2. **Manage Product Groups**:
    - Organize products into categories (e.g., Beverages, Snacks, Frozen Foods) by creating, editing, or deleting product groups. Ensure the menu remains organized for users.
 
-   ![Manage Product Groups](static/images/manage_product_groups_screenshot.png)
+   ![Manage Product Groups](app/static/images/manage_product_groups_screenshot.png)
 
 3. **Manage Products**:
    - Add, edit, or delete products from the **Manage Products** section.
    - Provide all necessary details (e.g., name, description, price, product group, image URL). Ensure image URLs are functional.
 
-   ![Manage Products](static/images/manage_products_screenshot.png)
+   ![Manage Products](app/static/images/manage_products_screenshot.png)
 
 4. **Manage Users and Roles**:
    - View and update user roles from the **Manage Users** section.
    - Promote or demote users by clicking the corresponding button. Promoted users gain access to the admin dashboard and can perform administrative tasks.
 
-   ![Manage Users](static/images/manage_users_screenshot.png)
+   ![Manage Users](app/static/images/manage_users_screenshot.png)
 
 By following this guide, both regular users and admins can make the most of the **Quick Eats & Drinks Store** platform.
 
@@ -270,11 +270,6 @@ To run the tests for the project, use:
    ```
 
    This will execute all the tests defined in the `tests` directory and ensure everything is functioning as expected.
-
-
-## Contributing
-
-We welcome contributions to improve the project. If you'd like to contribute, please fork the repository and submit a pull request. Ensure your code adheres to the project's coding standards and includes relevant tests.
 
 ## License
 
