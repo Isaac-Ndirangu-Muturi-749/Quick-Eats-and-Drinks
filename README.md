@@ -35,7 +35,7 @@ Quick Eats & Drinks Store provides a user-friendly interface for managing food a
 
 ## Technology Stack
 
-- **Frontend**: HTML, CSS (stylesheets in `static/css`), JavaScript (in `static/js/menu.js`).
+- **Frontend**: HTML, CSS (stylesheets in `static/css`), JavaScript (in `static/js`).
 - **Backend**: Flask (Python framework), SQLAlchemy (ORM for database management).
 - **Database**: SQLite (for development and testing), PostgreSQL (for production).
 - **Payment Integration**: PayPal.
@@ -181,6 +181,79 @@ To start the application, use:
    ```
 
    The application will be available at [http://127.0.0.1:5000](http://127.0.0.1:5000).
+
+## User Interface (UI) Guide
+
+This section provides an overview of how to use the **Quick Eats & Drinks** application for both regular users and administrators. It includes instructions on navigating the user interface (UI), placing orders, managing orders, and, for admins, managing products, product groups, and user roles.
+
+### Regular Users
+
+As a regular user, you can browse the catalog, place orders, view your order history, and manage your account. Here's a step-by-step guide to using the application:
+
+1. **Sign Up / Log In**:
+   - Create an account on the **Sign Up** page by providing your email, username, and password.
+   - If you already have an account, log in via the **Log In** page.
+
+   ![Sign Up Page](static/images/signup_screenshot.png)
+   ![Log In Page](static/images/login_screenshot.png)
+
+
+2. **Browse Products**:
+   - After logging in, explore the product catalog via the homepage or menu.
+   - Products are categorized (e.g., Ready-Made Meals, Snacks, Beverages). Scroll through product cards to view prices, descriptions, and availability.
+
+   ![Product Menu](static/images/product_menu_screenshot.png)
+
+3. **Add to Cart**:
+   - Adjust the quantity using the up/down buttons on each product card.
+   - View individual product totals on the card and a grand total for all selected items at the bottom.
+   - Use the **Submit Order** button to place your order and proceed to checkout or **Reset Order** to clear quantities.
+
+   ![Add to Cart](static/images/cart_screenshot.png)
+
+4. **Checkout and Place Order**:
+   - Review your cart and proceed to the checkout page.
+   - Click the **Pay with PayPal** button to complete your purchase. You’ll be redirected to PayPal to log in and confirm payment to the store.
+
+   ![Checkout Page](static/images/checkout_screenshot.png)
+
+5. **Order Confirmation and History**:
+   - After placing an order, you’ll receive an order confirmation message indicating successful payment and delivery status.
+
+   ![Order Confirmation](static/images/order_confirmation_screenshot.png)
+
+5. **Order Confirmation and History**:
+   - View past orders in the **Order History** section from the navigation bar.
+
+   ![Order History](static/images/order_history_screenshot.png)
+
+### Admin Users
+
+As an admin, you have additional privileges to manage the platform's content and users. Here’s how to maximize the admin interface:
+
+1. **Admin Dashboard**:
+   - Access the **Admin Dashboard** via the navigation bar. The dashboard allows you to manage **Products**, **Product Groups**, and **Users**.
+
+   ![Admin Dashboard](static/images/admin_dashboard_screenshot.png)
+
+2. **Manage Product Groups**:
+   - Organize products into categories (e.g., Beverages, Snacks, Frozen Foods) by creating, editing, or deleting product groups. Ensure the menu remains organized for users.
+
+   ![Manage Product Groups](static/images/manage_product_groups_screenshot.png)
+
+3. **Manage Products**:
+   - Add, edit, or delete products from the **Manage Products** section.
+   - Provide all necessary details (e.g., name, description, price, product group, image URL). Ensure image URLs are functional.
+
+   ![Manage Products](static/images/manage_products_screenshot.png)
+
+4. **Manage Users and Roles**:
+   - View and update user roles from the **Manage Users** section.
+   - Promote or demote users by clicking the corresponding button. Promoted users gain access to the admin dashboard and can perform administrative tasks.
+
+   ![Manage Users](static/images/manage_users_screenshot.png)
+
+By following this guide, both regular users and admins can make the most of the **Quick Eats & Drinks Store** platform.
 
 ## Running Tests
 
