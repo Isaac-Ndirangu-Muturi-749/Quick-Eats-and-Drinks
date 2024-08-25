@@ -1,7 +1,8 @@
-
 # Quick Eats & Drinks
 
-**Quick Eats & Drinks** is a web-based e-commerce platform designed for managing and ordering food and drinks. This application allows users to browse products, place orders, and manage their order history. The platform also includes an admin interface for managing products, product groups, and users.
+**Quick Eats & Drinks** is an online store offering a variety of popular ready-made food products and beverages. This application caters to a broad audience seeking convenience and variety, allowing users to browse products, place orders, and manage their order history. The platform also includes an admin interface for managing products, product groups, and users.
+
+![Quick Eats & Drinks Logo](app/static/images/logo.png)
 
 ## Table of Contents
 
@@ -9,11 +10,14 @@
 - [Features](#features)
 - [Technology Stack](#technology-stack)
 - [Setup and Installation](#setup-and-installation)
+- [Setup Environment Configuration](#setup-environment-configuration)
+- [Setup the Database](#setup-the-database)
 - [Running the Application](#running-the-application)
 - [Running Tests](#running-tests)
 - [Folder Structure](#folder-structure)
 - [Contributing](#contributing)
 - [License](#license)
+- [Author](#author)
 
 ## Project Overview
 
@@ -22,9 +26,10 @@ Quick Eats & Drinks provides a user-friendly interface for managing food and dri
 ## Features
 
 - **User Authentication**: Sign up, log in, and manage user accounts.
-- **Product Management**: Browse products, view details, and add items to the cart.
+- **Product Menu**: Browse products, view details, and add items to the cart.
 - **Order Processing**: Place orders and proceed to checkout.
 - **Order History**: View past orders and track order status.
+- **Payment Integration**: Pay for orders with PayPal.
 - **Admin Interface**: Manage products, product groups, and user accounts.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 
@@ -50,8 +55,8 @@ To set up and run the Quick Eats & Drinks project locally, follow these steps:
 2. **Create a Virtual Environment**:
 
    ```bash
-    conda create --name my_env python=3.10
-    conda activate my_env
+   conda create --name my_env python=3.10
+   conda activate my_env
    ```
 
 3. **Install Dependencies**:
@@ -61,8 +66,6 @@ To set up and run the Quick Eats & Drinks project locally, follow these steps:
    ```
 
 ## Setup Environment Configuration
-
-This section provides instructions for creating and configuring the `.env` file and integrating PayPal API credentials into the application.
 
 1. **Create a `.env` File**
 
@@ -84,17 +87,13 @@ This section provides instructions for creating and configuring the `.env` file 
 
    Replace `your_paypal_client_id`, `your_paypal_client_secret`, and `your_secret_key` with your actual PayPal API credentials and Flask secret key.
 
-  The application is properly configured to load the `.env` variables. You can use the `python-dotenv` package to load environment variables from the `.env` file. Install it using:
+   The application uses the `python-dotenv` package to load environment variables from the `.env` file. Install it using:
 
    ```bash
    pip install python-dotenv
    ```
 
-2. **Setup PayPal API**
-
-   Make sure to have your PayPal API credentials ready. You need to configure the PayPal SDK with your credentials to handle payment processing. You can add these credentials to your `.env` file as shown above. The PayPal API client will use these credentials to communicate with the PayPal services.
-
-   Then, in the application setup (i.e., `app/__init__.py`), the environment variables are loaded like this:
+   In the application setup (i.e., `app/__init__.py`), load the environment variables like this:
 
    ```python
    from dotenv import load_dotenv
@@ -108,10 +107,7 @@ This section provides instructions for creating and configuring the `.env` file 
    SECRET_KEY = os.getenv('SECRET_KEY')
    ```
 
-   The PayPal payment routes and configurations are correctly set up to use these environment variables.
-
-
-4. **Setup the Database**:
+   Ensure that your PayPal payment routes and configurations use these environment variables.
 
 ## Setup the Database
 
@@ -160,13 +156,15 @@ f. **Seed the Database with Initial Data**:
    python db_setup_and_seed.py
    ```
 
-5. **Run the Application**:
+## Running the Application
+
+To start the application, use:
 
    ```bash
    python run.py
    ```
 
-   The application will be available at `http://127.0.0.1:5000`.
+   The application will be available at [http://127.0.0.1:5000](http://127.0.0.1:5000).
 
 ## Running Tests
 
@@ -175,17 +173,18 @@ To run the tests for the project, use:
    ```bash
    python run_tests.py
    ```
-   Alternatively, you can use the following command:
 
-    ```bash
-    pytest
-    ```
+   Alternatively, you can use:
 
-This will run all the tests defined in the `tests` directory and ensure that everything is functioning as expected.
+   ```bash
+   pytest
+   ```
+
+   This will execute all the tests defined in the `tests` directory and ensure everything is functioning as expected.
 
 ## Folder Structure
 
-- **app/**: Contains the core application code including routes, models, and static assets.
+- **app/**: Contains the core application code, including routes, models, and static assets.
   - **routes/**: Contains route handlers for different functionalities.
   - **static/**: Contains CSS, JavaScript, and image files.
   - **templates/**: Contains HTML templates for rendering views.
@@ -201,19 +200,13 @@ This will run all the tests defined in the `tests` directory and ensure that eve
 
 ## Contributing
 
-Contributions are welcome! Please follow these guidelines for contributing:
-
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a new Pull Request.
+We welcome contributions to improve the project. If you'd like to contribute, please fork the repository and submit a pull request. Ensure your code adheres to the project's coding standards and includes relevant tests.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
+## Author
 
 Follow me on Twitter 🐦, connect with me on LinkedIn 🔗, and check out my GitHub 🐙. You won't be disappointed!
 
