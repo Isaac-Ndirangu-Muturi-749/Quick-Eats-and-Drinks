@@ -217,12 +217,12 @@ As a regular user, you can browse the catalog, place orders, view your order his
 
    ![Checkout Page](app/static/images/checkout_screenshot.png)
 
-5. **Order Confirmation and History**:
+5. **Order Confirmation**:
    - After placing an order, you’ll receive an order confirmation message indicating successful payment and delivery status.
 
    ![Order Confirmation](app/static/images/order_confirmation_screenshot.png)
 
-5. **Order Confirmation and History**:
+5. **Order History**:
    - View past orders in the **Order History** section from the navigation bar.
 
    ![Order History](app/static/images/order_history_screenshot.png)
