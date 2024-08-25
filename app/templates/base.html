@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickEats&Drinks</title>
+    <title>QuickEats&DrinksStore</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
@@ -16,8 +16,8 @@
     <header id="header" class="mainHeader">
         <div class="header-content">
             <div class="header-logo">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="QuickEats&Drinks Logo" class="logo-img">
-                <h1>Quick Eats & Drinks</h1>
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="QuickEats&DrinksStore Logo" class="logo-img">
+                <h1>Quick Eats & Drinks Store</h1>
             </div>
             <div class="header-links">
                 {% if current_user.is_authenticated %}
@@ -52,7 +52,7 @@
         {% block content %}{% endblock %}
     </main>
     <footer class="footer">
-        <h5>&copy; 2024, QuickEats&Drinks. All rights reserved.</h5>
+        <h5>&copy; 2024, QuickEats&DrinksStore. All rights reserved.</h5>
     </footer>
 </body>
 </html>
