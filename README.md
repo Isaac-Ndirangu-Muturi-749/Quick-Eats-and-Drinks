@@ -1,8 +1,8 @@
-# Quick Eats & Drinks
+# Quick Eats & Drinks Store
 
-**Quick Eats & Drinks** is an online store offering a variety of popular ready-made food products and beverages. This application caters to a broad audience seeking convenience and variety, allowing users to browse products, place orders, and manage their order history. The platform also includes an admin interface for managing products, product groups, and users.
+**Quick Eats & Drinks Store** is an online store offering a variety of popular ready-made food products and beverages. This application caters to a broad audience seeking convenience and variety, allowing users to browse products, place orders, and manage their order history. The platform also includes an admin interface for managing products, product groups, and users.
 
-![Quick Eats & Drinks Logo](app/static/images/homepage.png)
+![Quick Eats & Drinks Store Logo](app/static/images/homepage.png)
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@
 
 ## Project Overview
 
-Quick Eats & Drinks provides a user-friendly interface for managing food and drink orders. Users can view products by category, place orders, and track their order history. Administrators have access to a dashboard where they can add, edit, or delete products and product groups.
+Quick Eats & Drinks Store provides a user-friendly interface for managing food and drink orders. Users can view products by category, place orders, and track their order history. Administrators have access to a dashboard where they can add, edit, or delete products and product groups.
 
 ## Features
 
@@ -59,13 +59,13 @@ Quick Eats & Drinks provides a user-friendly interface for managing food and dri
 
 ## Setup and Installation
 
-To set up and run the Quick Eats & Drinks project locally, follow these steps:
+To set up and run the Quick Eats & Drinks Store project locally, follow these steps:
 
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/Isaac-Ndirangu-Muturi-749/Quick-Eats-and-Drinks.git
-   cd Quick-Eats-and-Drinks
+   git clone https://github.com/Isaac-Ndirangu-Muturi-749/Quick-Eats-and-Drinks-Store.git
+   cd Quick-Eats-and-Drinks-Store
    ```
 
 2. **Create a Virtual Environment**:
