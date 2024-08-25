@@ -1,3 +1,4 @@
+# app/models.py
 from app import db
 from datetime import datetime
 from flask_login import UserMixin
@@ -62,14 +63,14 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     order_date_time = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)  # Link to User
-    amount = db.Column(db.Float, nullable=False)
+    total_amount = db.Column(db.Float, nullable=False)
+    status = db.Column(db.String(20), nullable=False, default='Pending')
 
     # Relationship to OrderItem
     order_items = db.relationship('OrderItem', backref='order', lazy=True)
 
     def __repr__(self):
         return f'<Order {self.id}>'
-
 
 class OrderItem(db.Model):
     __tablename__ = 'order_items'

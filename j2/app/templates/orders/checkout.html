@@ -1,0 +1,74 @@
+<!-- app/templates/orders/checkout.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="order-header">
+    <h1>Checkout</h1>
+</header>
+
+<main class="checkout-main">
+    <p>Thank you for your order! Your order number and details are shown below.</p>
+
+    <div class="order-details">
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <td>{{ order.id }}</td>
+            </tr>
+            <tr>
+                <th>Order Date</th>
+                <td>{{ order.order_date_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+            <tr>
+                <th>Total Amount</th>
+                <td>{{ order.total_amount | format_currency }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>Items:</h3>
+    <table class="order-items-table">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order_item, product in items %}
+                <tr>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ order_item.quantity }}</td>
+                    <td>{{ product.price | format_currency }}</td>
+                    <td>{{ (order_item.quantity * product.price) | format_currency }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- PayPal Payment Form -->
+    <div class="payment-section">
+        <h3>Payment</h3>
+        <p>Your total is: {{ order.total_amount | format_currency }}</p>
+
+        <p>Your order has been placed successfully. Please complete the payment below.</p>
+
+        <form action="{{ url_for('payment.create_payment') }}" method="post">
+            <input type="hidden" name="order_id" value="{{ order.id }}">
+            <button type="submit" class="btn btn-primary">Pay with PayPal</button>
+        </form>
+        <!-- Success or failure message -->
+        {% if payment_status %}
+            {% if payment_status == 'success' %}
+                <p class="success-message">Payment completed successfully!</p>
+            {% elif payment_status == 'failed' %}
+                <p class="error-message">Payment failed. Please try again.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <a href="{{ url_for('orders.order_history') }}" class="btn-primary">View Order History</a>
+</main>
+{% endblock %}

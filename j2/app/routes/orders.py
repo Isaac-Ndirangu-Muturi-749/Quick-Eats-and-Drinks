@@ -17,7 +17,7 @@ def process_order():
     total_amount = sum(float(price) * int(quantity) for price, quantity in zip(prices, quantities))
 
     # Insert the order into the database
-    order = Order(user_id=current_user.id, order_date_time=datetime.utcnow(), amount=total_amount)
+    order = Order(user_id=current_user.id, order_date_time=datetime.utcnow(), total_amount=total_amount)
     db.session.add(order)
     db.session.commit()
 
@@ -29,16 +29,16 @@ def process_order():
 
     db.session.commit()
 
-    return redirect(url_for('orders.order_confirmation', order_id=order.id))
+    return redirect(url_for('orders.checkout', order_id=order.id))
 
 
-@orders_bp.route('/order_confirmation/<int:order_id>')
+@orders_bp.route('/checkout/<int:order_id>')
 @login_required
-def order_confirmation(order_id):
+def checkout(order_id):
     order = Order.query.get_or_404(order_id)
     items = db.session.query(OrderItem, Product).join(Product).filter(OrderItem.order_id == order_id).all()
 
-    return render_template('orders/order_confirmation.html', order=order, items=items)
+    return render_template('orders/checkout.html', order=order, items=items)
 
 
 @orders_bp.route('/order-history', methods=['GET'])
