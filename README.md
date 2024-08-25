@@ -43,15 +43,15 @@ To set up and run the Quick Eats & Drinks project locally, follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourusername/Quick-Eats-and-Drinks.git
+   git clone https://github.com/Isaac-Ndirangu-Muturi-749/Quick-Eats-and-Drinks.git
    cd Quick-Eats-and-Drinks
    ```
 
 2. **Create a Virtual Environment**:
 
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    conda create --name my_env python=3.10
+    conda activate my_env
    ```
 
 3. **Install Dependencies**:
@@ -60,9 +60,101 @@ To set up and run the Quick Eats & Drinks project locally, follow these steps:
    pip install -r requirements.txt
    ```
 
+## Setup Environment Configuration
+
+This section provides instructions for creating and configuring the `.env` file and integrating PayPal API credentials into the application.
+
+1. **Create a `.env` File**
+
+   Create a file named `.env` in the root directory of the project. This file should contain environment-specific variables, such as database configurations and secret keys. Below is a template you can use:
+
+   ```ini
+   # .env
+
+   # Database Configuration
+   DATABASE_URL=sqlite:///instance/site.db
+
+   # PayPal Configuration
+   PAYPAL_CLIENT_ID=your_paypal_client_id
+   PAYPAL_CLIENT_SECRET=your_paypal_client_secret
+
+   # Secret Key for Flask Sessions
+   SECRET_KEY=your_secret_key
+   ```
+
+   Replace `your_paypal_client_id`, `your_paypal_client_secret`, and `your_secret_key` with your actual PayPal API credentials and Flask secret key.
+
+  The application is properly configured to load the `.env` variables. You can use the `python-dotenv` package to load environment variables from the `.env` file. Install it using:
+
+   ```bash
+   pip install python-dotenv
+   ```
+
+2. **Setup PayPal API**
+
+   Make sure to have your PayPal API credentials ready. You need to configure the PayPal SDK with your credentials to handle payment processing. You can add these credentials to your `.env` file as shown above. The PayPal API client will use these credentials to communicate with the PayPal services.
+
+   Then, in the application setup (i.e., `app/__init__.py`), the environment variables are loaded like this:
+
+   ```python
+   from dotenv import load_dotenv
+   import os
+
+   load_dotenv()
+
+   # Example of accessing environment variables
+   PAYPAL_CLIENT_ID = os.getenv('PAYPAL_CLIENT_ID')
+   PAYPAL_CLIENT_SECRET = os.getenv('PAYPAL_CLIENT_SECRET')
+   SECRET_KEY = os.getenv('SECRET_KEY')
+   ```
+
+   The PayPal payment routes and configurations are correctly set up to use these environment variables.
+
+
 4. **Setup the Database**:
 
-   Initialize and seed the database with the following command:
+## Setup the Database
+
+Follow these steps to set up and initialize the database:
+
+a. **Remove Existing Migrations Folder and Database File**:
+
+   ```bash
+   sudo rm -rf ./migrations/
+   sudo rm -f ./instance/site.db
+   ```
+
+b. **Initialize the Migration Repository**:
+
+   ```bash
+   flask db init
+   ```
+
+c. **Generate an Initial Migration Script**:
+
+   ```bash
+   flask db migrate -m "Initial migration."
+   ```
+
+d. **Apply the Migration to the Database**:
+
+   ```bash
+   flask db upgrade
+   ```
+
+e. **Create the Admin User**:
+
+   ```bash
+   python create_admin.py
+   ```
+
+f. **Seed the Database with Initial Data**:
+
+   ```bash
+   python seed.py
+   ```
+
+   Alternatively, you can use the following command to initialize and seed the database:
 
    ```bash
    python db_setup_and_seed.py
@@ -80,9 +172,14 @@ To set up and run the Quick Eats & Drinks project locally, follow these steps:
 
 To run the tests for the project, use:
 
-```bash
-pytest
-```
+   ```bash
+   python run_tests.py
+   ```
+   Alternatively, you can use the following command:
+
+    ```bash
+    pytest
+    ```
 
 This will run all the tests defined in the `tests` directory and ensure that everything is functioning as expected.
 
