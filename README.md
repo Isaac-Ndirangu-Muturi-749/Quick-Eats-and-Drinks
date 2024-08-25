@@ -2,7 +2,7 @@
 
 **Quick Eats & Drinks** is an online store offering a variety of popular ready-made food products and beverages. This application caters to a broad audience seeking convenience and variety, allowing users to browse products, place orders, and manage their order history. The platform also includes an admin interface for managing products, product groups, and users.
 
-![Quick Eats & Drinks Logo](app/static/images/logo.png)
+![Quick Eats & Drinks Logo](app/static/images/homepage.png)
 
 ## Table of Contents
 
@@ -91,7 +91,7 @@ To set up and run the Quick Eats & Drinks project locally, follow these steps:
    # .env
 
    # Database Configuration
-   DATABASE_URL=sqlite:///instance/site.db
+   DATABASE_URL=sqlite:///site.db
 
    # PayPal Configuration
    PAYPAL_CLIENT_ID=your_paypal_client_id
@@ -169,7 +169,7 @@ f. **Seed the Database with Initial Data**:
    Alternatively, you can use the following command to initialize and seed the database:
 
    ```bash
-   python db_setup_and_seed.py
+   bash db_setup_and_seed.sh
    ```
 
 ## Running the Application
