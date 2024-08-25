@@ -61,7 +61,7 @@ def execute_payment():
         if order:
             order.status = 'Completed'
             db.session.commit()
-        return redirect(url_for('orders.order_history', order_id=order_id))
+        return redirect(url_for('orders.order_completed', order_id=order_id))
     else:
         flash('Payment execution failed', 'danger')
         return redirect(url_for('orders.order_history'))

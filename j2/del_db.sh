@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 
 # Remove existing migrations folder and database file
 echo "Removing migrations folder and database file..."

@@ -69,3 +69,20 @@ def order_history():
         })
 
     return render_template('orders/order_history.html', orders=order_data)
+
+
+# app/routes/orders.py
+
+@orders_bp.route('/order_completed/<int:order_id>', methods=['GET'])
+@login_required
+def order_completed(order_id):
+    # Fetch the order to confirm it was completed
+    order = Order.query.get_or_404(order_id)
+
+    # Ensure the order belongs to the current user
+    if order.user_id != current_user.id:
+        flash('You are not authorized to view this order.', 'danger')
+        return redirect(url_for('orders.order_history'))
+
+    # Render order completed page
+    return render_template('orders/order_completed.html', order=order)
