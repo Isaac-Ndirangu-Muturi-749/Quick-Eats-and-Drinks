@@ -41,6 +41,22 @@ Quick Eats & Drinks provides a user-friendly interface for managing food and dri
 - **Payment Integration**: PayPal.
 - **Testing**: pytest for integration testing.
 
+## Folder Structure
+
+- **app/**: Contains the core application code, including routes, models, and static assets.
+  - **routes/**: Contains route handlers for different functionalities.
+  - **static/**: Contains CSS, JavaScript, and image files.
+  - **templates/**: Contains HTML templates for rendering views.
+- **create_admin.py**: Script to create an admin user.
+- **db_setup_and_seed.py**: Script to set up and seed the database.
+- **instance/**: Directory for instance-specific configuration and database files.
+- **migrations/**: Contains database migration files.
+- **requirements.txt**: Lists the project dependencies.
+- **run.py**: Entry point to run the application.
+- **run_tests.py**: Script to run tests.
+- **seed.py**: Script for seeding the database with initial data.
+- **tests/**: Contains test files for the application.
+
 ## Setup and Installation
 
 To set up and run the Quick Eats & Drinks project locally, follow these steps:
@@ -182,21 +198,6 @@ To run the tests for the project, use:
 
    This will execute all the tests defined in the `tests` directory and ensure everything is functioning as expected.
 
-## Folder Structure
-
-- **app/**: Contains the core application code, including routes, models, and static assets.
-  - **routes/**: Contains route handlers for different functionalities.
-  - **static/**: Contains CSS, JavaScript, and image files.
-  - **templates/**: Contains HTML templates for rendering views.
-- **create_admin.py**: Script to create an admin user.
-- **db_setup_and_seed.py**: Script to set up and seed the database.
-- **instance/**: Directory for instance-specific configuration and database files.
-- **migrations/**: Contains database migration files.
-- **requirements.txt**: Lists the project dependencies.
-- **run.py**: Entry point to run the application.
-- **run_tests.py**: Script to run tests.
-- **seed.py**: Script for seeding the database with initial data.
-- **tests/**: Contains test files for the application.
 
 ## Contributing
 
@@ -210,7 +211,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Follow me on Twitter 🐦, connect with me on LinkedIn 🔗, and check out my GitHub 🐙. You won't be disappointed!
 
-🐦 Twitter: https://x.com/NdiranguMuturi1
-💼 LinkedIn: https://www.linkedin.com/in/isaac-muturi-3b6b2b237
-🔗 GitHub: https://github.com/Isaac-Ndirangu-Muturi-749
-📧 Email: ndirangumuturi749@gmail.com
+    🐦 Twitter: https://x.com/NdiranguMuturi1
+    💼 LinkedIn: https://www.linkedin.com/in/isaac-muturi-3b6b2b237
+    🔗 GitHub: https://github.com/Isaac-Ndirangu-Muturi-749
+    📧 Email: ndirangumuturi749@gmail.com
