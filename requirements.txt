@@ -1,0 +1,14 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-Babel
+flask-login
+
+paypalrestsdk
+python-dotenv
+
+Flask-Testing
+
+pytest
+pytest-flask
+pytest-mock

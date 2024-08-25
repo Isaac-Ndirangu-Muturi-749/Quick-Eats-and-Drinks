@@ -1,9 +1,0 @@
-Flask
-Flask-SQLAlchemy
-Flask-Migrate
-Flask-Babel
-flask-login
-
-paypalrestsdk
-python-dotenv
-
