@@ -13,15 +13,14 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(255), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
 
-    # Set and check password methods
+    # Relationship to orders with cascade delete
+    orders = db.relationship('Order', backref='user', lazy=True, cascade='all, delete-orphan')
+
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-
-    # Relationship to orders
-    orders = db.relationship('Order', backref='user', lazy=True)
 
     def __repr__(self):
         return f'<User {self.username}>'
@@ -34,15 +33,15 @@ class ProductGroup(db.Model):
     product_group_name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(200), nullable=True)
 
-    # Relationship with Product
-    products = db.relationship('Product', backref='group', lazy=True)
+    # Relationship with Product with cascade delete
+    products = db.relationship('Product', backref='group', lazy=True, cascade='all, delete-orphan')
 
     def __repr__(self):
         return f'<ProductGroup {self.product_group_name}>'
 
 
 class Product(db.Model):
-    __tablename__ = 'products'  # Changed to plural to match convention
+    __tablename__ = 'products'
 
     id = db.Column(db.Integer, primary_key=True)
     product_name = db.Column(db.String(100), nullable=False)
@@ -66,11 +65,12 @@ class Order(db.Model):
     total_amount = db.Column(db.Float, nullable=False)
     status = db.Column(db.String(20), nullable=False, default='Pending')
 
-    # Relationship to OrderItem
-    order_items = db.relationship('OrderItem', backref='order', lazy=True)
+    # Relationship to OrderItem with cascade delete
+    order_items = db.relationship('OrderItem', backref='order', lazy=True, cascade='all, delete-orphan')
 
     def __repr__(self):
         return f'<Order {self.id}>'
+
 
 class OrderItem(db.Model):
     __tablename__ = 'order_items'
